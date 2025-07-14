@@ -1,0 +1,87 @@
+{
+    "name": "beta-catine",
+    "numb_walkers": 16,
+    "numb_iters": 100,
+    "trust_lvl_1": 1,
+    "trust_lvl_2": 2,
+    "init_models": [],
+    
+    "CV": {
+        "mode": "custom",
+        "selected_resid": [],
+        "angular_mask": [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ],
+        "weights": [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ],
+        "cv_file":["psi-phi.cv"]
+    },
+
+    "ExploreMDConfig": {
+        "nsteps": 2500000,
+        "type": "gmx",
+        "temperature": 300,
+        "output_freq": 2500,
+        "ref-t": "300 300",
+        "verlet-buffer-tolerance":"-1",
+        "rlist": 1,
+        "rvdw": 1.0,
+        "rvdw-switch": 0,
+        "rcoulomb": 1.0,
+        "rcoulomb-switch": 0,
+        "epsilon-r":1,
+        "epsilon-rf":80,
+        "dt": 0.002,
+        "fourierspacing": "0.12",
+        "output_mode": "single",
+        "ntmpi": 1,
+        "nt": 16,
+        "max_warning": 2
+    },
+
+    "SelectorConfig": {
+        "numb_cluster_lower": 12,
+        "numb_cluster_upper": 22,
+        "cluster_threshold": 1.5,
+        "max_selection": 30,
+        "numb_cluster_threshold": 6,
+        "slice_mode": "gmx"
+    },
+
+    "LabelMDConfig": {
+        "nsteps": 50000,
+        "temperature":300,
+        "method": "restrained",
+        "type": "gmx",
+        "output_freq": 50,
+        "ref-t": "300 300",
+        "rlist": 1,
+        "verlet-buffer-tolerance":"-1",
+        "rvdw": 1.0,
+        "rvdw-switch": 0,
+        "rcoulomb": 1.0,
+        "rcoulomb-switch": 0,
+        "epsilon-r":1,
+        "epsilon-rf":80,
+        "dt": 0.002,
+        "fourierspacing": "0.12",
+        "output_mode": "single",
+        "ntmpi": 1,
+        "nt": 16,
+        "max_warning": 2,
+        "kappas": [  500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500 ],
+        "std_threshold": 2.5
+    },
+
+    "Train": {
+        "numb_models": 4,
+        "neurons": [256, 256, 256, 256],
+        "resnet": true,
+        "batch_size": 128,
+        "epoches": 8000,
+        "init_lr": 0.0008,
+        "decay_steps": 120,
+        "decay_rate": 0.96,
+        "drop_out_rate": 0.1,
+        "numb_threads": 16,
+        "use_mix": false,
+        "restart": false
+    }
+}
